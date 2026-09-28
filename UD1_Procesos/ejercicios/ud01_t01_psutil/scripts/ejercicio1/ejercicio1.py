@@ -40,10 +40,27 @@ print(f"Porcentaje de memoria usada:  {psutil.virtual_memory().percent}%")
 print(f"Listado de particiones:  {psutil.disk_partitions(all=False)}")
 #Uso de disco para cada unidad o partición
 print(f"Uso de cada unidad/partición:  {psutil.disk_usage('/')}")
-# 
+# Número de operaciones de lectura
+print(f"Múmero de operaciones de lectura: {psutil.disk_io_counters(perdisk=False, nowrap=True).read_count}")
+
 
 #Número de operaciones de escritura
+print(f"Múmero de operaciones de escritura: {psutil.disk_io_counters(perdisk=False, nowrap=True).write_count}")
 
 #Número de bytes leídos
 
+print(f"Múmero de bytes leidos: {psutil.disk_io_counters(perdisk=False, nowrap=True).read_bytes}")
 #Número de bytes escritos
+print(f"Múmero de bytes escritos: {psutil.disk_io_counters(perdisk=False, nowrap=True).write_bytes}")
+
+
+#Estadísticas de red
+#bytes enviados
+
+
+#bytes recibidos
+
+
+#paquetes enviados
+
+#paquetes recibidos
