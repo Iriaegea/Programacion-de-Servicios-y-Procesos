@@ -55,6 +55,9 @@ memoriaDisponible = psutil.virtual_memory().available
 #Porcentaje de memoria usada
 print(f"Porcentaje de memoria usada:  {psutil.virtual_memory().percent}%")
 memoriaUsada = psutil.virtual_memory().percent
+
+
+
 #Información de discos
 #Listado de particiones
 print(f"Listado de particiones:  {psutil.disk_partitions(all=False)}")
@@ -113,10 +116,7 @@ diccionario["frecuencia"] = frecuencia
 diccionario["porcentaje uso de CPU"] = porcentajeuso
 diccionario["memoria total"] = memoriaTotal
 diccionario["memoria disponible"] = memoriaDisponible
-diccionario[""]
-diccionario[""]
-diccionario[""]
-diccionario[""]
+diccionario["memoria usada"] = memoriaUsada
 
 
 #usar diccionario para escribir en json
