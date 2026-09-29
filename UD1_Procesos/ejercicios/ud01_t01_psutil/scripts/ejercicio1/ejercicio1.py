@@ -1,5 +1,7 @@
 # demostración de ejecución
 import psutil
+from datetime import datetime
+
 
 print(f"Hola mundo soy linux {psutil.LINUX}")
 print(f"Hola mundo soy windows {psutil.WINDOWS}")
@@ -56,11 +58,29 @@ print(f"Múmero de bytes escritos: {psutil.disk_io_counters(perdisk=False, nowra
 
 #Estadísticas de red
 #bytes enviados
-
+print(f"BYTES ENVIADOS: {psutil.net_io_counters(pernic=False, nowrap=True).bytes_sent}")
 
 #bytes recibidos
-
+print(f"BYTES RECIBIDOS: {psutil.net_io_counters(pernic=False, nowrap=True).bytes_recv}")
 
 #paquetes enviados
+print(f"PAQUETES ENVIADOS: {psutil.net_io_counters(pernic=False, nowrap=True).packets_sent}")
 
 #paquetes recibidos
+print(f"PAQUETES ENVIADOS: {psutil.net_io_counters(pernic=False, nowrap=True).packets_recv}")
+
+
+
+#Guardar información del sistema:
+#Realizará un volcado de la información del sistema 
+#que se muestra por pantalla a un fichero JSON en la 
+#ruta que se proporcione, siendo el nombre del fichero 
+#el siguiente: yyyyMMddhhmmss-system-info.json
+
+fechaactual = datetime.datetime.now()
+fechaactualformateada = fechaactual.strftime("%Y%m%d%H%M%S")
+archivo = fr'D:\iriae\Desktop\PSP\UD1_Procesos\ejercicios\ud01_t01_psutil\scripts\ejercicio2\{fechaactualformateada}-system-info.json'
+
+
+with open(archivo, mode = "w") as file:
+    json.dump()
