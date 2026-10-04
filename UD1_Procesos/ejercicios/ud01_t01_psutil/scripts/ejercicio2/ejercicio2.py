@@ -1,13 +1,17 @@
 def mostrarServicios():
     
-
+    for s in psutil.win_service_iter():
+        print(f"{s.name()}: ({s.pid()}, {s.status()}, {s.start_type()})")
 
 def mostrarServiciosFiltrados():
-
+    filtro = set(input("Filtra: ").split())
+    for s in psutil.win_service_iter():
+        if filtro.issubset(set([s.status(), s.start_type()])):
+            print(f"{s.name()}: ({s.pid()}, {s.status()}, {s.start_type()})")
 
 
 def mostrarDescripcionServicio():
-
+    print(f"Descripción: {s.description()}")
 
 
 
@@ -28,11 +32,13 @@ while opcion != 0:
 
     opcion = int(input("selecciona una opcion: "))
     match opcion:
-    case 1:
-        mostrarServicios()
-    case 2:
-        mostrarServiciosFiltrados()
-    case 3:
-        mostrarDescripcionServicio()
-    case 0: 
-    print(f"Has salido del programa")
+        case 1:
+            mostrarServicios()
+        case 2:
+            mostrarServiciosFiltrados()
+        case 3:
+            mostrarDescripcionServicio()
+        case 0: 
+            print(f"Has salido del programa")
+        case _:
+            print(f"Opción no válida")
