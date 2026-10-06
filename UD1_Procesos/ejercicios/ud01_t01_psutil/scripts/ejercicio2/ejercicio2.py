@@ -1,3 +1,5 @@
+import psutil
+
 def mostrarServicios():
     
     for s in psutil.win_service_iter():
@@ -11,34 +13,48 @@ def mostrarServiciosFiltrados():
 
 
 def mostrarDescripcionServicio():
-    print(f"Descripción: {s.description()}")
+    nombreServicio = input(f"Escribe el nombre del servicio que quieres buscar: ")
+    for s in psutil.win_service_iter():
+        if(s.name() == nombreServicio):
+            print(f"Descripción: {s.description()}")
 
+        
+    
+    
 
-
-
-
-
-
-if __name__ == "__main__":
-
-opcion = 1
-
-while opcion != 0:
+def mostrarMenu():
     print(f"""MENU:
         1. Mostrar todos los servicios
         2. Mostrar servicios filtrados
         3. Mostrar descripción de un servicio
         0. SALIR""")
+    return int(input("selecciona una opcion: "))
 
-    opcion = int(input("selecciona una opcion: "))
-    match opcion:
-        case 1:
-            mostrarServicios()
-        case 2:
-            mostrarServiciosFiltrados()
-        case 3:
-            mostrarDescripcionServicio()
-        case 0: 
-            print(f"Has salido del programa")
-        case _:
-            print(f"Opción no válida")
+
+
+if __name__ == "__main__":
+
+    opcion = 1
+
+    while opcion != 0:
+        opcion = mostrarMenu()
+
+    
+        match opcion:
+            case 1:
+                mostrarServicios()
+
+            case 2:
+                mostrarServiciosFiltrados()
+
+            case 3:
+
+                mostrarDescripcionServicio()
+
+            case 0: 
+
+                print(f"Has salido del programa")
+            case _:
+                print(f"Opción no válida")
+
+    
