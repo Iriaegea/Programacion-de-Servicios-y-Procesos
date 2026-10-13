@@ -1,29 +1,16 @@
-import subprocess
-import sys
-import time
 
-import subprocess
-import sys
-import time
+nombre_fichero = "alias.txt"
+alias = {} #eso es un map(diccionario en python)
 
-inicio = time.perf_counter()
+with open(nombre_fichero, "r") as fichero:
+    # for linea in fichero.readlines():
+    #  k,v=linea.strip("\n").split("=") #la estrellita desempaqueta y lo guarda en los valores de la izda
+    #  alias[k] = v
+    alias = {k:v for k,v in list(map(lambda linea: linea.strip("\n").split("="),fichero.readlines()))}
 
-argumentos = sys.argv[1:] #ignora la posicion 0 y pilla hasta el final
+print(alias)
 
 
-resultado = subprocess.run(argumentos, capture_output=True, text=True, shell=True) #shell es para que detecte q lo q meto es un comando
 
-fin = time.perf_counter()
+#strip elimina lo q le pases por paréntesis
 
-print(f"""
-Ejecutando: {" ".join(argumentos)}
-Salida del proceso:
-{resultado.stdout}
-{resultado.stderr}
-
-Tarea terminada
-
-Tiempo de ejecucion: {(fin-inicio):2.2f} segundos
-Código de salida: {resultado.returncode}
-
-""")
