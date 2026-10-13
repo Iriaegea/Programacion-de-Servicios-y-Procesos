@@ -35,7 +35,12 @@ def porUsoDeCpu(usoCpu):
     print(procesos)
 
 
-#def mostrarArbol():
+
+def pintar_arbol(pid, sep=u'\u2514'+u'\u2500'+u'\u2500'):
+    p = psutil.Process(pid)
+    print(f"{sep}PID: {pid}, Nombre: {p.name()}")
+    for h in p.children():
+        pintar_arbol(h.pid, "|  "+sep)
 
 
 if __name__ == "__main__":
@@ -50,16 +55,18 @@ if __name__ == "__main__":
             case 1:
                mostrarInfoProcesos()
             case 2:
-                usoMemoria = input("¿Por encima de qué porcentaje de uso de memoria? : ")
+                usoMemoria = int(input("¿Por encima de qué porcentaje de uso de memoria? : "))
                 porUsoDeMemoria(usoMemoria)
 
             case 3:
-                usoCpu= input("Por")
-                porUsoDeCpu()
+                usoCpu= int(input("Por encima de qué porcentaje de uso de cpu?"))
+                porUsoDeCpu(usoCpu)
             case 4: 
-                mostrarArbol()
+                import os
+                pidGuadado = os.getpid()
+                pintar_arbol(pidGuadado)
             case 0: 
-
+                
                 print(f"Has salido del programa")
             case _:
                 print(f"Opción no válida")
