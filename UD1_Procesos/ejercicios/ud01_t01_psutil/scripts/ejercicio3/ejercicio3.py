@@ -11,25 +11,31 @@ def mostrarMenu():
 
 
 def mostrarInfoProcesos():
-    #creando un array por compresión
+    #array por compresión
     arrayProcesos = [p for p in psutil.process_iter(attrs = ['pid', 'name', 'username'])]
     for p in arrayProcesos : 
         print(f"pid: {p.pid}, name: {p.name}, username: {p.username}\n")
         
 
 
-def porUsoDeMemoria():
-    procesos = [p for p in psutil.process_iter(attrs=['pid', 'name', 'username']) if p.memory_percent() >1]
+def porUsoDeMemoria(usoMemoria):
+    procesos = [p for p in psutil.process_iter(attrs=['pid', 'name', 'username']) if p.memory_percent() >usoMemoria]
     procesos.sort(key=lambda p: p.memory_percent(), reverse = True)
     for p in procesos:
         print(f"pid: {p.pid}, name: {p.name}, username: {p.username}\n")
 
     print(procesos)
 
- def porUsoDeCpu():
-    
 
-# def mostrarArbol();
+def porUsoDeCpu(usoCpu):
+    procesos = [p for p in psutil.process_iter(attrs=['pid', 'name', 'username','memory_info']) if p.cpu_percent(interval=0.5)>usoCpu]
+
+    procesos.sort(key=lambda p: p.cpu_percent(interval=0.5))
+
+    print(procesos)
+
+
+#def mostrarArbol():
 
 
 if __name__ == "__main__":
@@ -42,14 +48,16 @@ if __name__ == "__main__":
     
         match opcion:
             case 1:
-               mostrarInfoProcesos();
+               mostrarInfoProcesos()
             case 2:
-                porUsoDeMemoria();
+                usoMemoria = input("¿Por encima de qué porcentaje de uso de memoria? : ")
+                porUsoDeMemoria(usoMemoria)
 
             case 3:
-                porUsoDeCpu();
-            # case 4: 
-
+                usoCpu= input("Por")
+                porUsoDeCpu()
+            case 4: 
+                mostrarArbol()
             case 0: 
 
                 print(f"Has salido del programa")
