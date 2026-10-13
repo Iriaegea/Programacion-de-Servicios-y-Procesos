@@ -1,0 +1,5 @@
+verip=ipconfig
+toctoc=ping
+py=python
+ip=ipconfig
+ping=ping -c1
