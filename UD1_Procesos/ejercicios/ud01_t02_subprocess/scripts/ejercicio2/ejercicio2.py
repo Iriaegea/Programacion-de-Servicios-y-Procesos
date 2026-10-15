@@ -23,9 +23,7 @@ while respuesta != "exit":
         comandoIntroducido = arrayRespuesta[0]
         argumentosIntroducidos = arrayRespuesta[1:]
 
-        print(f"Ejecutando {alias.get(comandoIntroducido)} {" ".join(argumentosIntroducidos)"})
-
-
+       print(f"Ejecutando {alias.get(comandoIntroducido)} {' '.join(argumentosIntroducidos)}")
 
 
 print("Has salido del minishell")
