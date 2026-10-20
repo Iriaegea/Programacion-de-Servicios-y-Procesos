@@ -7,8 +7,8 @@
 import multiprocessing
 
 def llenarLista(listaCompartida):
-    for num in  len(listaCompartida):
-        listaCompartida[num]=num +1
+    for num in len(listaCompartida):
+        listaCompartida[num]=num
 
     
     print("Resultado de llenar la lista: {}".format(listaCompartida[:]))
