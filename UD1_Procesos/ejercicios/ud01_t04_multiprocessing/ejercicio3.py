@@ -14,7 +14,13 @@ def rellenar(miArray, q):
 
 
 
-def sumar():
+
+def sumar(q):
+    suma = 0
+    while not q.empty():
+        suma += q.get()
+
+print(suma)
 
 if __name__ == '__main__':
 
@@ -22,3 +28,10 @@ if __name__ == '__main__':
     q = multiprocessing.Queue()
     p1 = multiprocessing.Process(target=rellenar, args=(miArray, q))
     p2 = multiprocessing.Process(target=sumar, args=(q))
+
+
+    p1.start()
+    p1.join()
+
+    p2.start()
+    p2.join()
