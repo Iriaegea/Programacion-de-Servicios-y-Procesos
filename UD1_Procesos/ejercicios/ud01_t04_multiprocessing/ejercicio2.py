@@ -12,6 +12,8 @@ import random
 # asiga el primer valor al diccionario compartido
 def valor1(diccionario):
     diccionario[1]= random.random()
+    #randInt
+    #randUniform
 
 # asigna el siguiente valor al diccionario
 def valor2(diccionario):
@@ -31,3 +33,5 @@ if __name__ == '__main__':
         p2.join()
 
         print(diccionario)
+        os.getpid
+        ## os.getpid para poner el id del proceso (hay q importar el os)
