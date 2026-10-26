@@ -9,11 +9,11 @@ import multiprocessing
 import random
 
 
-
+# asiga el primer valor al diccionario compartido
 def valor1(diccionario):
-    
     diccionario[1]= random.random()
 
+# asigna el siguiente valor al diccionario
 def valor2(diccionario):
     diccionario[2] = random.random()
 
