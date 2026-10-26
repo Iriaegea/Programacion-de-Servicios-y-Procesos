@@ -22,7 +22,7 @@ if __name__ == '__main__':
     cadena = "hola"
 
 
-    #
+    
     parent_conn, child_conn = multiprocessing.Pipe()
 
     p1 = multiprocessing.Process(target=enviarCdena, args=(parent_conn, cadena))
