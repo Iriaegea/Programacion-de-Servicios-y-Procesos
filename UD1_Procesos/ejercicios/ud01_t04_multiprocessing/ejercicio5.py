@@ -7,13 +7,18 @@
 
 import multiprocessing
 
+def cuadrado(){
+    print("Id del proceso: {}".format(os.getpid()))
+}
 
 
 if __name__== "__main__":
     miLista = (n for n in range(10))
     p = multiprocessing.Pool(Processes=4)
 
-    result 
+    result = p.map(cuadrado, miLista)
+
+    print(result)
 
 
 

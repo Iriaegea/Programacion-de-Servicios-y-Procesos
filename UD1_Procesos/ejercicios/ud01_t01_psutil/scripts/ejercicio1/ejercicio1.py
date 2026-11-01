@@ -1,6 +1,6 @@
 # demostración de ejecución
 import psutil
-from datetime import datetime
+
 
 
 print(f"Hola mundo soy linux {psutil.LINUX}")
@@ -102,7 +102,11 @@ paquetesEnviados = psutil.net_io_counters(pernic=False, nowrap=True).packets_sen
 #ruta que se proporcione, siendo el nombre del fichero 
 #el siguiente: yyyyMMddhhmmss-system-info.json
 
-fechaactual = datetime.datetime.now()
+
+import json
+from datetime import datetime #ya no hace falta poner datetime.datetime.now()
+
+fechaactual = datetime.now()
 fechaactualformateada = fechaactual.strftime("%Y%m%d%H%M%S")
 archivo = f'{fechaactualformateada}-system-info.json'
 
