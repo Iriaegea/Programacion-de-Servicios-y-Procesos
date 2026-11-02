@@ -19,6 +19,8 @@ def mayusculizar(conn):
     #no hace falta cerrarlo pq ya se queda sin mensajes
 
 if __name__ == '__main__':
+
+    # hay q leer desde el proceso principal:
     cadena = "hola"
 
 

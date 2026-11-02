@@ -6,9 +6,10 @@
 
 
 import multiprocessing
-
-def cuadrado():
-    print("Id del proceso: {}".format(os.getpid()))
+import os
+def cuadrado(dato):
+    print("Id del proceso: {0}, dato: ︃{1}, cuadrado: ︃{2}".format(os.getpid(), dato, dato*dato))
+    return dato*dato
 
 
 
