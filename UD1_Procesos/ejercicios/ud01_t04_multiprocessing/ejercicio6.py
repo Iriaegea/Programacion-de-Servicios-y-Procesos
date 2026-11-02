@@ -7,25 +7,25 @@
 import multiprocessing
 
 
-def cosa1(contador, lock){
+def cosa1(contador, lock):
     for i in range(100):
         lock.acquire()
-        contador.value = contador + 1
+        contador.value +=  1
         lock.release
 
-}
 
-def cosa2(contador, lock){
+
+def cosa2(contador, lock):
     for i in range(100):
         lock.acquire()
-        contador.value = contador + 1
+        contador.value += 1
         lock.release
 
-}
 
-if __name__ = "__main__":
 
-    contador = multiprocessing.Value('i', 100)
+if __name__ == "__main__":
+
+    contador = multiprocessing.Value('i', 0)
     lock = multiprocessing.Lock()
 
 
