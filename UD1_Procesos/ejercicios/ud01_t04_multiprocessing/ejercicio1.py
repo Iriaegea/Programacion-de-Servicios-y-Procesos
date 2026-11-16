@@ -8,6 +8,7 @@ import multiprocessing
 import time
 import random
 
+
 def llenarLista(listaCompartida):
     for num in range(0,10):
         listaCompartida[num]=num +1

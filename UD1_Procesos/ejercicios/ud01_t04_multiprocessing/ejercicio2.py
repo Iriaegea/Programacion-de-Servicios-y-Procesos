@@ -7,7 +7,7 @@
 
 import multiprocessing
 import random
-
+import os
 
 # asiga el primer valor al diccionario compartido
 def valor1(diccionario):

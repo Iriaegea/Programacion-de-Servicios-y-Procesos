@@ -16,7 +16,7 @@ argumentos = sys.argv[1:] #ignora la posicion 0 y pilla hasta el final
 
 
 resultado = subprocess.run(argumentos, capture_output=True, text=True, shell=True) #shell es para que detecte q lo q meto es un comando
-
+subprocess.run()
 fin = time.perf_counter()
 
 print(f"""

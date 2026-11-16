@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "producto": "Teclado",
+        "unidades": 3,
+        "precio": 25.50
+    },
+    {
+        "id": 2,
+        "producto": "Ratón",
+        "unidades": 5,
+        "precio": 12.00
+    },
+    {
+        "id": 3,
+        "producto": "Monitor",
+        "unidades": 2,
+        "precio": 149.99
+    }
+]
